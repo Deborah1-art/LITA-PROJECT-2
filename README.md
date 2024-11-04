@@ -16,3 +16,10 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
 - Structured Query Language (SQL) for Querying of Data
 - Power Bi for Advanced Visualizations and Interactive Reports
 - GitHub for Portfolio Building
+
+ ### Data Cleaning and Prepartions
+
+  ### Exploratory Data Analysis
+  ---
+  Below are some of the question answerwed while exploring the Dataset;
+  
