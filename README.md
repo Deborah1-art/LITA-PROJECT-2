@@ -20,7 +20,8 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
 
 ### Data Cleaning and Prepartions
 ---
-
+1. Data loading and Inspection
+2. Data cleaning and formatting
 
 ### Exploratory Data Analysis
   ---
@@ -49,37 +50,27 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
 
 Below are some queries used in the data analysis;
  ```SQL
-SELECT * FROM [dbo].[project2]
+SELECT * FROM  [dbo].[CustomerData]
 
 ---Total Number of Customer from each Region
 select Region, COUNT(CustomerName) AS Totalcustomers
-from [dbo].[project2]
+from [dbo].[CustomerData]
 Group by Region 
 
 ----Most popular Subscription type by Customers
 select top 1 SubscriptionType, Count(CustomerID)as NumberofCustomers
-from [dbo].[project2]
+from [dbo].[CustomerData]
 group by SubscriptionType
 order by NumberofCustomers desc
 
----Customers who canceled their subscription within 6 months
-select CustomerID, CustomerName, SubscriptionStart, Canceled from [dbo].[project2]
-where Canceled = 'TRUE'
-AND DATEDIFF(month, SubscriptionStart, getdate()) <= 06 ;
-
-----Average Subscription Duration
-select AVG(datediff(day,SubscriptionStart,isnull(SubscriptionEnd,getdate()))) 
-as AverageDuration
-from [dbo].[project2];
-
 ---Total Revenue by Subscription Type
 select SubscriptionType, SUM(Revenue) as TotalRevenue
-from [dbo].[project2]
+from [dbo].[CustomerData]
 group by SubscriptionType
 
 ---Top 3 Regions by Subscription Cancellations
 SELECT TOP 3 Region, COUNT (*) AS Cancellations
-from [dbo].[project2]
+from [dbo].[CustomerData]
 where SubscriptionEnd is not null
 Group by Region
 order by Cancellations desc
@@ -88,9 +79,24 @@ order by Cancellations desc
 SELECT CASE WHEN Canceled = 'TRUE' then 'CANCELED'
 ELSE 'ACTIVE'
 END AS SubscriptionStatus,
-Count (*) as TotalSubscriptions From [dbo].[project2]
+Count (*) as TotalSubscriptions From [dbo].[CustomerData]
 GROUP BY CASE WHEN Canceled = 'TRUE' THEN 'CANCELED' ELSE 'ACTIVE'
 END;
+
+----Average Subscription Duration
+select AVG(datediff(day,SubscriptionStart,isnull(SubscriptionEnd,getdate()))) 
+as AverageDuration
+from [dbo].[CustomerData]
+
+---Customers who canceled their subscription within 6 months
+select CustomerID, CustomerName, SubscriptionStart, Canceled from [dbo].[CustomerData]
+where Canceled = 'TRUE'
+AND DATEDIFF(month, SubscriptionStart, getdate()) <= 06 ;
+
+---Customers with subscriptions longer than 12 months
+select CustomerID, CustomerName, SubscriptionStart, Canceled 
+from [dbo].[CustomerData]
+where DATEDIFF(month, SubscriptionStart, getdate()) > 12
 ```
 
 ### Data Visualization
