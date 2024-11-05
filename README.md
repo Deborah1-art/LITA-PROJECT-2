@@ -1,5 +1,6 @@
 # LITA-PROJECT-2
 
+
 ### Project Title: Customer Segmentation Analysis
 
 ### Project Overview
@@ -44,7 +45,9 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
  
 ### Data Analysis
 ---
- Below are some queries used in data analysis;
+1.  SQL
+
+Below are some queries used in the data analysis;
  ```SQL
 SELECT * FROM [dbo].[project2]
 
