@@ -4,7 +4,7 @@
 
 ### Project Overview
 ---
-This project leverages on 
+This project leverages on customer data to uncover behaviour patterns, track subscription types and identify trends in cancellations and renewals. 
 
 ### Data Source
 ---
@@ -43,6 +43,7 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
   1. Build a power Bi dashboard that visualizes key customer segments, cancellations and subscription trends. Include slicers for interractive analysis.
  
 ### Data Analysis
+---
  Below are some queries used in data analysis;
  ```SQL
 SELECT * FROM [dbo].[project2]
@@ -57,6 +58,11 @@ select top 1 SubscriptionType, Count(CustomerID)as NumberofCustomers
 from [dbo].[project2]
 group by SubscriptionType
 order by NumberofCustomers desc
+
+---Customers who canceled their subscription within 6 months
+select CustomerID, CustomerName, SubscriptionStart, Canceled from [dbo].[project2]
+where Canceled = 'TRUE'
+AND DATEDIFF(month, SubscriptionStart, getdate()) <= 06 ;
 
 ----Average Subscription Duration
 select AVG(datediff(day,SubscriptionStart,isnull(SubscriptionEnd,getdate()))) 
