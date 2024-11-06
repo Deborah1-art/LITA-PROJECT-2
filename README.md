@@ -113,6 +113,7 @@ where DATEDIFF(month, SubscriptionStart, getdate()) > 12
 
 ### Data Visualization
 ---
+Below are some data visualizations done using the Power BI: 
   ![alt text](<Average subscription duration.png>)
   ![alt text](<Customer by region.png>)
   ![alt text](<Customer by subscription type.png>)
