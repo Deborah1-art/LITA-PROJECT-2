@@ -46,7 +46,10 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
  
 ### Data Analysis
 ---
-1.  SQL
+1. Microsoft Excel
+ Below are some analysis done on the data:
+
+2. SQL
 
 Below are some queries used in the data analysis;
  ```SQL
