@@ -46,7 +46,9 @@ The dataset used in this project is the LITA Capstone Dataset (Subscription Data
  
 ### Data Analysis
 ---
-1. Microsoft Excel Below are some analysis done on the data:
+1. Microsoft Excel
+
+ Below are some analysis done on the data:
 
   ![alt text](<Active and canceled subscription by region.jpg>)
   ![alt text](<Active and canceled subscriptions by customers.jpg>)
